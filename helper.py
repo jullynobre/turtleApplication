@@ -17,7 +17,7 @@ def get_y(func, x):
         n2 = get_right_number(func, i_op)
         op = func[i_op]
         result = calc(n1, n2, op)
-        func = func.replace(n1 + n2, result)
+        func = func.replace(str(n1)+op+str(n2), str(result))
     return func
 
 
@@ -45,10 +45,11 @@ def get_index_of_next_operator(func):
         sub_func = func[func.find("(")+1:func.find(")")]
         return func.find("(") + 1 + get_index_of_next_operator(sub_func)
 
+
 def get_left_number(func, i_next_op):
     if has_operator(func[0:i_next_op]):
         i = i_next_op - 1
-        number = "";
+        number = ""
         while not has_operator(func[i]):
             number = func[i] + number
             i -= 1
@@ -58,16 +59,15 @@ def get_left_number(func, i_next_op):
 
 
 def get_right_number(func, i_next_op):
-    if has_operator(func[i_next_op:len(func)]):
-        x=i_next_op+1
-        number = "";
+    if has_operator(func[i_next_op+1:len(func)]):
+        x = i_next_op+1
+        number = ""
         while not has_operator(func[x]):
-            number = func[i_next_op:x]
-            x=x+1
-        x=x
+            number += func[x]
+            x += 1
         return number
     else:
-        return func[i_next_op:len(func)]
+        return func[i_next_op+1:len(func)]
 
 
 def calc(n1, n2, op):
@@ -87,7 +87,7 @@ def replace_x_with_operator(func, x):
         if index == 0:
             func = str(x) + func[1:len(func)]
         elif has_operator(func[index-1]):
-            func = func[0:index] + str(x) + func[index+1:len(func)-index+1]
+            func = func[0:index] + str(x) + func[index+1:len(func)]
         else:
-            func = func[0:index] + "*" + str(x) + func[index+1:len(func)+index]
+            func = func[0:index] + "*" + str(x) + func[index+1:len(func)]
     return func
