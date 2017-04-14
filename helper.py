@@ -6,7 +6,7 @@ def get_function_type(func):
 def clear_function(func):
     func = func.lower()
     func = func.replace(" ", "")
-    print(func)
+    return func
 
 
 def get_y(func, x):
@@ -38,13 +38,21 @@ def get_index_of_next_operator(func):
         elif div != -1:
             return div
         elif sum < sub:
-            return sum
-        else:
             return sub
+        else:
+            return sum
 
 
 def get_left_number(func, i_next_op):
-    return 1
+    if has_operator(func[0:i_next_op]):
+        i = i_next_op - 1
+        number = "";
+        while not has_operator(func[i]):
+            number = func[i] + number
+            i -= 1
+        return number
+    else:
+        return func[0:i_next_op]
 
 
 def get_right_number(func, i_next_op):
