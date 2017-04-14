@@ -35,12 +35,14 @@ def scale():
 
     turtle.backward(10)
     turtle.right(40)
+    turtle.begin_fill()
     turtle.backward(30)
     turtle.forward(30)
     turtle.left(80)
     turtle.backward(30)
     turtle.forward(30)
     turtle.right(40)
+    turtle.end_fill()
     turtle.forward(10)
 
     turtle.backward(50)
@@ -106,6 +108,7 @@ def scale():
 
     
 def grafic():
+    turtle.tracer(0,0)
     scale()
     turtle.penup()
     turtle.setpos(coordenadas[0],coordenadas[1])
@@ -115,6 +118,7 @@ def grafic():
     for i in range(x):
         turtle.setpos(coordenadas[cont],coordenadas[cont+1])
         cont += 2
-
+    turtle.update()
 grafic()
+turtle.update()
 #lines()
