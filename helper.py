@@ -41,6 +41,9 @@ def get_index_of_next_operator(func):
             return sub
         else:
             return sum
+    else:
+        sub_func = func[func.find("(")+1:func.find(")")]
+        return func.find("(") + 1 + get_index_of_next_operator(sub_func)
 
 
 def get_left_number(func, i_next_op):
