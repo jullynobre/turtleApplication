@@ -111,8 +111,8 @@ def scale():
     turtle.right(90)
     turtle.forward(height/2-20)
     turtle.left(90)
-    tamanhoLegenda=len(str(escala))*6+62
-    turtle.forward(width/2-tamanhoLegenda-escala-30)
+    tamanho_legenda=len(str(escala))*6+62
+    turtle.forward(width/2-tamanho_legenda-escala-30)
 
     turtle.write(escala)
     turtle.forward(len(str(escala))*6-55)
@@ -144,21 +144,7 @@ def scale():
     turtle.home()
     turtle.pendown()
 
-    
-   # #legenda de cores
-    #turtle.penup()
-    #turtle.right(90)
-   # turtle.forward(height/2-40)
-   # turtle.left(90)
-   # turtle.forward(width/2-150)
-   # turtle.begin_fill()
-   # for i in range(4):
-   #     turtle.forward(10)
-   #     turtle.left(90)
-   # turtle.end_fill()
 
-   # turtle.pendown()
-    
 def grafic():
     turtle.tracer(0,0)
     scale()
