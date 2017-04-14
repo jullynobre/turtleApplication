@@ -70,6 +70,5 @@ def replace_x_with_operator(func, x):
         elif has_operator(func[index-1]):
             func = func[0:index] + str(x) + func[index+1:len(func)-index+1]
         else:
-            # essa parte tá bugando na hora de pegar a função do lado direito do X
-            func = func[0:index] + "*" + str(x) + func[index+1:len(func)-index+1]
+            func = func[0:index] + "*" + str(x) + func[index+1:len(func)+index]
     return func
