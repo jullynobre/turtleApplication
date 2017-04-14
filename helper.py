@@ -10,7 +10,7 @@ def clear_function(func):
 
 
 def get_y(func, x):
-    func = func.replace("x", "*" + x)
+    func = replace_x_with_operator(func, x)
     while has_operator(func):
         i_op = get_index_of_next_operator(func)
         n1 = get_left_number(func, i_op)
@@ -22,13 +22,25 @@ def get_y(func, x):
 
 
 def has_operator(func):
-    if (func.find("+") < 0) or (func.find("-") < 0) or (func.find("*") < 0) or (func.find("/") < 0):
+    if (func.find("+") >= 0) or (func.find("-") >= 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
         return True
     return False
 
 
 def get_index_of_next_operator(func):
-    return 1
+    if func.find("(") < 0:
+        sum = func.find("+")
+        sub = func.find("-")
+        mul = func.find("*")
+        div = func.find("/")
+        if (mul != -1) and ((mul < div) or (div == -1)):
+            return mul
+        elif div != -1:
+            return div
+        elif sum < sub:
+            return sum
+        else:
+            return sub
 
 
 def get_left_number(func, i_next_op):
@@ -48,3 +60,16 @@ def calc(n1, n2, op):
         return float(n1) * float(n2)
     elif op == "/":
         return float(n1) / float(n2)
+
+
+def replace_x_with_operator(func, x):
+    while func.find("x") != -1:
+        index = func.find("x")
+        if index == 0:
+            func = str(x) + func[1:len(func)]
+        elif has_operator(func[index-1]):
+            func = func[0:index] + str(x) + func[index+1:len(func)-index+1]
+        else:
+            # essa parte tá bugando na hora de pegar a função do lado direito do X
+            func = func[0:index] + "*" + str(x) + func[index+1:len(func)-index+1]
+    return func
