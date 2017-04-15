@@ -1,5 +1,6 @@
 import turtle
 import helper
+import draw
 
 
 def x_generator():
@@ -24,12 +25,17 @@ def som_xy(x, y):
     for i in range(len(x)):
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
+    return raw_coordinates
 
 
-def method():
+def main():
     scn = turtle.Screen()
     text = scn.textinput("Teste", "Teste Teste")
     x = x_generator()
     y = y_generator(x, text)
+    raw_coordinates = som_xy(x, y)
+    scale = 10
+    draw.draw(raw_coordinates, scale)
+
     print(y)
-method()
+main()
