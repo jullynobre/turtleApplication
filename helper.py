@@ -1,23 +1,28 @@
-def get_function_type(func):
-    clear_function(func)
-    return 1
+def get_y(func, x):
+    func = clear_function(func)
+    func = replace_x_with_operator(func, x)
+    if func.find("(") < 0:
+        func = replace_exponents(func)
+        while has_operator(func):
+            i_op = get_index_of_next_operator(func)
+            n1 = get_left_number(func, i_op)
+            n2 = get_right_number(func, i_op)
+            op = func[i_op]
+            result = calc(n1, n2, op)
+            func = func.replace(str(n1)+op+str(n2), str(result))
+    else:
+        sub_func = func[func.find("(") + 1:func.find(")")]
+        if not has_operator(func[func.find("(")-1]):
+            sub_func = func.replace("("+sub_func+")", "*"+get_y(sub_func, x))
+        else:
+            sub_func = func.replace("("+sub_func+")", get_y(sub_func, x))
+        return get_y(sub_func, x)
+    return func
 
 
 def clear_function(func):
     func = func.lower()
     func = func.replace(" ", "")
-    return func
-
-
-def get_y(func, x):
-    func = replace_x_with_operator(func, x)
-    while has_operator(func):
-        i_op = get_index_of_next_operator(func)
-        n1 = get_left_number(func, i_op)
-        n2 = get_right_number(func, i_op)
-        op = func[i_op]
-        result = calc(n1, n2, op)
-        func = func.replace(str(n1)+op+str(n2), str(result))
     return func
 
 
@@ -86,8 +91,19 @@ def replace_x_with_operator(func, x):
         index = func.find("x")
         if index == 0:
             func = str(x) + func[1:len(func)]
-        elif has_operator(func[index-1]):
+        elif has_operator(func[index-1]) or (func[index-1] == "("):
             func = func[0:index] + str(x) + func[index+1:len(func)]
         else:
             func = func[0:index] + "*" + str(x) + func[index+1:len(func)]
+    return func
+
+
+def replace_exponents(func):
+    while func.find("²") >= 0:
+        index = func.find("²")
+        func = func[0:index] + "*" + str(get_left_number(func, index)) + func[index+1:len(func)]
+    while func.find("³") >= 0:
+        index = func.find("³")
+        new = float(get_left_number(func, index)) * float(get_left_number(func, index))
+        func = func[0:index] + "*" + str(new) + func[index + 1:len(func)]
     return func
