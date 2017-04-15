@@ -27,7 +27,7 @@ def clear_function(func):
 
 
 def has_operator(func):
-    if (func.find("+") >= 0) or (func.find("-") > 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
+    if (func.find("+") >= 0) or (func[1:len(func)].find("-") >= 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
         return True
     return False
 
@@ -35,7 +35,7 @@ def has_operator(func):
 def get_index_of_next_operator(func):
     if func.find("(") < 0:
         sum = func.find("+")
-        sub = func.find("-")
+        sub = func[1:len(func)].find("-") + 1
         mul = func.find("*")
         div = func.find("/")
         if (mul != -1) and ((mul < div) or (div == -1)):
