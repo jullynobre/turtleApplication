@@ -4,7 +4,7 @@
 ##coordenadas_cruas=[-3,9,-2,4,-1,1,0,0,1,1,2,4,3,9]
 ##coordenadas=[escala*coordenadas for coordenadas in coordenadas_cruas]
 
-##import turtle
+import turtle
 ##turtle.hideturtle()
 
     

@@ -27,7 +27,7 @@ def clear_function(func):
 
 
 def has_operator(func):
-    if (func.find("+") >= 0) or (func.find("-") >= 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
+    if (func.find("+") >= 0) or (func.find("-") > 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
         return True
     return False
 
@@ -42,10 +42,10 @@ def get_index_of_next_operator(func):
             return mul
         elif div != -1:
             return div
-        elif sum < sub:
-            return sub
-        else:
+        elif sum < sub and sum != -1:
             return sum
+        else:
+            return sub
     else:
         sub_func = func[func.find("(")+1:func.find(")")]
         return func.find("(") + 1 + get_index_of_next_operator(sub_func)
@@ -67,7 +67,9 @@ def get_right_number(func, i_next_op):
     if has_operator(func[i_next_op+1:len(func)]):
         x = i_next_op+1
         number = ""
-        while not has_operator(func[x]):
+        number += func[x]
+        x += 1
+        while x < len(func) and not has_operator(func[x]):
             number += func[x]
             x += 1
         return number
