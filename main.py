@@ -1,12 +1,6 @@
 import turtle
 import helper
-
-
-def main():
-    scn = turtle.Screen()
-    text = scn.textinput("Teste", "Teste Teste")
-    print(helper.get_y(text, 2))
-main()
+import draw
 
 
 def x_generator():
@@ -17,4 +11,16 @@ def x_generator():
         x.append(a)
         a+=1
     return x
-    
+
+
+def y_generator(x,func):
+    y=[]
+    for i in range(len(x)):
+        y.append(get_y(func, x[i]))
+    return y
+
+def main():
+    scn = turtle.Screen()
+    text = scn.textinput("Teste", "Teste Teste")
+    print(helper.get_y(text, 2))
+main()
