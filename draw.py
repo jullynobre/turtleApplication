@@ -8,14 +8,14 @@
 ##turtle.hideturtle()
 
     
-def draw(coordenadas_cruas,escala):
+def draw(raw_coordinates,scale):
     turtle.hide()
-    coordenadas=[escala*coordenadas for coordenadas in coordenadas_cruas]
-    scale(escala)
-    grafic(coordenadas,escala)
+    coordenadas=[scale*coordinates for coordinates in raw_coordinates]
+    scale(coordinates)
+    grafic(coordinates,scale)
 
-    
-def scale(escala):
+
+def scale(scale):
     width=turtle.window_width()
     height=turtle.window_height()
     turtle.left(90)
@@ -73,9 +73,9 @@ def scale(escala):
 
     #distancia x vezes escala igual a distancia em pixeis
 
-    a=int((width/escala)/2)
+    a=int((width/scale)/2)
     for i in range(a):
-        turtle.forward(escala)
+        turtle.forward(scale)
         turtle.right(90)
         turtle.forward(5)
         turtle.backward(5)
@@ -87,7 +87,7 @@ def scale(escala):
     
 
     for i in range(a):
-        turtle.forward(escala)
+        turtle.forward(scale)
         turtle.left(90)
         turtle.forward(5)
         turtle.backward(5)
@@ -95,10 +95,10 @@ def scale(escala):
 
     turtle.home()
 
-    b=int((height/escala)/2)
+    b=int((height/scale)/2)
     turtle.left(90)
     for i in range(b):
-        turtle.forward(escala)
+        turtle.forward(scale)
         turtle.right(90)
         turtle.forward(5)
         turtle.backward(5)
@@ -108,7 +108,7 @@ def scale(escala):
     turtle.right(90)
 
     for i in range(b):
-        turtle.forward(escala)
+        turtle.forward(scale)
         turtle.left(90)
         turtle.forward(5)
         turtle.backward(5)
@@ -121,11 +121,11 @@ def scale(escala):
     turtle.right(90)
     turtle.forward(height/2-20)
     turtle.left(90)
-    tamanho_legenda=len(str(escala))*6+62
-    turtle.forward(width/2-tamanho_legenda-escala-30)
+    label_size=len(str(scale))*6+62
+    turtle.forward(width/2-label_size-scale-30)
 
     turtle.write(escala)
-    turtle.forward(len(str(escala))*6-55)
+    turtle.forward(len(str(scale))*6-55)
     turtle.write('Escala =')
     turtle.forward(55)
     turtle.write(':1')
@@ -155,17 +155,17 @@ def scale(escala):
     turtle.pendown()
 
 
-def grafic(coordenadas,escala):
+def grafic(coordinates,scale):
     turtle.tracer(0,0)
     scale()
     turtle.penup()
-    turtle.setpos(coordenadas[0],coordenadas[1])
-    x=int(len(coordenadas)/2)
+    turtle.setpos(coordinates[0],coordinates[1])
+    x=int(len(coordinates)/2)
     turtle.pendown()
     cont=0
     turtle.color('red')
     for i in range(x):
-        turtle.setpos(coordenadas[cont],coordenadas[cont+1])
+        turtle.setpos(coordinates[cont],coordinates[cont+1])
         cont += 2
     turtle.update()
 
