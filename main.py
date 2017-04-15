@@ -2,13 +2,6 @@ import turtle
 import helper
 
 
-def main():
-    scn = turtle.Screen()
-    text = scn.textinput("Teste", "Teste Teste")
-    x =
-main()
-
-
 def x_generator():
     num_x = turtle.window_width()/2
     a = (num_x/2)*(-1)
@@ -31,3 +24,12 @@ def som_xy(x, y):
     for i in range(len(x)):
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
+
+
+def method():
+    scn = turtle.Screen()
+    text = scn.textinput("Teste", "Teste Teste")
+    x = x_generator()
+    y = y_generator(x, text)
+    print(y)
+method()

@@ -109,3 +109,4 @@ def replace_exponents(func):
         new = float(get_left_number(func, index)) * float(get_left_number(func, index))
         func = func[0:index] + "*" + str(new) + func[index + 1:len(func)]
     return func
+
