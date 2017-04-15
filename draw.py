@@ -1,7 +1,8 @@
 #equação exemplo y=x^2
 #escala exemplo 10 pixeis por unidade
 escala=10
-coordenadas=[-30,90,-20,40,-10,10,0,0,10,10,20,40,30,90]
+coordenadas_cruas=[-3,9,-2,4,-1,1,0,0,1,1,2,4,3,9]
+coordenadas=[escala*coordenadas for coordenadas in coordenadas_cruas]
 
 import turtle
 turtle.hideturtle()
