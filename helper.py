@@ -29,6 +29,8 @@ def clear_function(func):
 def has_operator(func):
     if (func.find("+") >= 0) or (func[1:len(func)].find("-") >= 0) or (func.find("*") >= 0) or (func.find("/") >= 0):
         return True
+    elif len(func) == 1 and func.find("-") == 0:
+        return True
     return False
 
 
