@@ -147,17 +147,18 @@ def background(scale):
 
 
 def grafic(coordinates,scale):
-    turtle.tracer(0,0)
+
     turtle.penup()
+    turtle.color('red')
     turtle.setpos(coordinates[0],coordinates[1])
     x=int(len(coordinates)/2)
     turtle.pendown()
     cont=0
-    turtle.color('red')
+    
     for i in range(x):
         turtle.setpos(coordinates[cont],coordinates[cont+1])
         cont += 2
-    turtle.update()
+    
 
 
 def draw(raw_coordinates, scale):

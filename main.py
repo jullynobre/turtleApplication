@@ -4,7 +4,7 @@ import draw
 
 
 def x_generator():
-    num_x = turtle.window_width()/2
+    num_x = turtle.window_width()
     a = (num_x/2)*(-1)
     x = []
     for i in range(int(num_x)):
@@ -16,13 +16,17 @@ def x_generator():
 def y_generator(x, func):
     y = []
     for i in range(len(x)):
-        y.append(helper.get_y(func, x[i]))
+        j=helper.get_y(func, x[i])
+        y.append(float(j))
     return y
 
 
 def som_xy(x, y):
     raw_coordinates = []
     for i in range(len(x)):
+
+
+
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
     return raw_coordinates
@@ -37,5 +41,4 @@ def main():
     scale = 10
     draw.draw(raw_coordinates, scale)
 
-    print(y)
 main()
