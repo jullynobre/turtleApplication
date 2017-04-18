@@ -10,6 +10,7 @@ def get_y(func, x):
             op = func[i_op]
             result = calc(n1, n2, op)
             func = func.replace(str(n1)+op+str(n2), str(result))
+            func = func.replace("--", "+")
     else:
         sub_func = func[func.find("(") + 1:func.find(")")]
         if not has_operator(func[func.find("(")-1]):
@@ -37,14 +38,16 @@ def has_operator(func):
 def get_index_of_next_operator(func):
     if func.find("(") < 0:
         sum = func.find("+")
-        sub = func[1:len(func)].find("-") + 1
+        sub = func[1:len(func)].find("-")
+        if sub >= 0:
+            sub += 1
         mul = func.find("*")
         div = func.find("/")
         if (mul != -1) and ((mul < div) or (div == -1)):
             return mul
         elif div != -1:
             return div
-        elif sum < sub and sum != -1:
+        elif (sum < sub and sum != -1) or sub == -1:
             return sum
         else:
             return sub
@@ -79,15 +82,19 @@ def get_right_number(func, i_next_op):
         return func[i_next_op+1:len(func)]
 
 
+def arr(num):
+    return float('%.2f' % num)
+
+
 def calc(n1, n2, op):
     if op == "+":
-        return float(n1) + float(n2)
+        return arr((float(n1) + float(n2)))
     elif op == "-":
-        return float(n1) - float(n2)
+        return arr((float(n1) - float(n2)))
     elif op == "*":
-        return float(n1) * float(n2)
+        return arr((float(n1) * float(n2)))
     elif op == "/":
-        return float(n1) / float(n2)
+        return arr((float(n1) / float(n2)))
 
 
 def replace_x_with_operator(func, x):

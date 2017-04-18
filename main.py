@@ -2,9 +2,10 @@ import turtle
 import helper
 import draw
 
+scale = 10
 
 def x_generator():
-    num_x = turtle.window_width()
+    num_x = turtle.window_width()/scale
     a = (num_x/2)*(-1)
     x = []
     for i in range(int(num_x)):
@@ -34,7 +35,7 @@ def som_xy(x, y):
 
 def main():
     scn = turtle.Screen()
-    text = scn.textinput("Teste", "Teste Teste")
+    text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
     y = y_generator(x, text)
     raw_coordinates = som_xy(x, y)
