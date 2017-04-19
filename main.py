@@ -1,6 +1,7 @@
 import turtle
 import helper
 import draw
+import ctypes
 
 scale = 10
 
@@ -35,7 +36,8 @@ def som_xy(x, y):
 
 def main():
     scn = turtle.Screen()
-    turtle.setup(1920,1080)
+    screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
+    turtle.setup(screensize[0],screensize[1])
     turtle.title("Grafic Builder 1.0")
     text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
@@ -43,5 +45,6 @@ def main():
     raw_coordinates = som_xy(x, y)
     scale = 10
     draw.draw(raw_coordinates, scale)
+    turtle.exitonclick()
 
 main()
