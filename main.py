@@ -35,6 +35,8 @@ def som_xy(x, y):
 
 def main():
     scn = turtle.Screen()
+    turtle.setup(1920,1080)
+    turtle.title("Grafic Builder 1.0")
     text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
     y = y_generator(x, text)

@@ -9,6 +9,8 @@ import turtle
 
 
 def background(scale):
+    turtle.hideturtle()
+    turtle.tracer(0, 0)
     width = turtle.window_width()
     height = turtle.window_height()
     turtle.left(90)
@@ -144,10 +146,12 @@ def background(scale):
 
     turtle.home()
     turtle.pendown()
+    turtle.update()
 
 
 def grafic(coordinates,scale):
-
+##    turtle.shape('triangle')
+##    turtle.showturtle()
     turtle.penup()
     turtle.color('red')
     turtle.setpos(coordinates[0],coordinates[1])
@@ -162,12 +166,9 @@ def grafic(coordinates,scale):
 
 
 def draw(raw_coordinates, scale):
-    turtle.tracer(0, 0)
-    turtle.hideturtle()
     coordinates = [scale*coordinates for coordinates in raw_coordinates]
     background(scale)
     grafic(coordinates, scale)
-    turtle.update()
 
 
 
