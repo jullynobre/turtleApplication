@@ -6,7 +6,6 @@ import ctypes
 scale = 10
 
 
-
 def x_generator():
     num_x = turtle.window_width()/scale
     a = (num_x/2)*(-1)
@@ -33,12 +32,6 @@ def som_xy(x, y):
     return raw_coordinates
 
 
-def upscale():
-    global scale
-    scale += 5
-    main()
-
-
 def main():
     scn = turtle.Screen()
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
@@ -48,15 +41,14 @@ def main():
     x = x_generator()
     y = y_generator(x, text)
     raw_coordinates = som_xy(x, y)
-    scale = 10
     draw.draw(raw_coordinates, scale)
-    # turtle.onkey(upscale(), 'p')
-    # turtle.listen()
-    turtle.exitonclick()
+    return raw_coordinates
+
+def upscale():
+    scale = 15
+    draw.draw(raw_coordinates, scale)
+
 
 main()
-##turtle.onkey(upscale(), 'p')
-##turtle.listen()
-turtle.exitonclick()
-
-main()
+turtle.onkey(upscale(), 'p')
+turtle.listen()

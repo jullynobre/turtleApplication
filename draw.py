@@ -9,6 +9,7 @@ import turtle
 
 
 def background(scale):
+    turtle.color('black')
     turtle.hideturtle()
     turtle.tracer(0, 0)
     width = turtle.window_width()
