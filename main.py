@@ -41,6 +41,14 @@ def upscale():
     draw.draw(raw_coordinates, scale)
 
 
+def downscale():
+    global scale
+    scale -= 5
+    global raw_coordinates
+    turtle.reset()
+    draw.draw(raw_coordinates, scale)
+
+
 def main():
     scn = turtle.Screen()
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
@@ -55,6 +63,7 @@ def main():
 
 
 main()
-turtle.onkey(upscale, 'p')
+turtle.onkey(upscale, 'Up')
+turtle.onkey(downscale, 'Down')
 turtle.listen()
 turtle.exitonclick()
