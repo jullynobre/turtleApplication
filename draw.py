@@ -1,15 +1,9 @@
-##equação exemplo y=x^2
-##escala exemplo 10 pixeis por unidade
-##escala=10
-##coordenadas_cruas=[-3,9,-2,4,-1,1,0,0,1,1,2,4,3,9]
-##coordenadas=[escala*coordenadas for coordenadas in coordenadas_cruas]
-
 import turtle
-##turtle.hideturtle()
 
 
 def background(scale):
     turtle.hideturtle()
+    turtle.color('black')
     turtle.tracer(0, 0)
     width = turtle.window_width()
     height = turtle.window_height()
@@ -150,8 +144,6 @@ def background(scale):
 
 
 def grafic(coordinates,scale):
-##    turtle.shape('triangle')
-##    turtle.showturtle()
     turtle.penup()
     turtle.color('red')
     turtle.setpos(coordinates[0],coordinates[1])
@@ -162,13 +154,22 @@ def grafic(coordinates,scale):
     for i in range(x):
         turtle.setpos(coordinates[cont],coordinates[cont+1])
         cont += 2
+    turtle.home()
     
+    
+
+##def upscale(scale,raw_coordinates):
+##    scale+=5
+##    coordinates = [scale*coordinates for coordinates in raw_coordinates]
+##    background(scale)
+##    grafic(coordinates,scale)
 
 
 def draw(raw_coordinates, scale):
     coordinates = [scale*coordinates for coordinates in raw_coordinates]
+    return coordinates
     background(scale)
     grafic(coordinates, scale)
-
-
+    
+    
 

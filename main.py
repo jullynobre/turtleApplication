@@ -3,7 +3,8 @@ import helper
 import draw
 import ctypes
 
-scale = 10
+scale=10
+
 
 def x_generator():
     num_x = turtle.window_width()/scale
@@ -24,14 +25,21 @@ def y_generator(x, func):
 
 
 def som_xy(x, y):
+    
     raw_coordinates = []
     for i in range(len(x)):
+        
 
 
 
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
     return raw_coordinates
+
+
+def upscale():
+    scale+=5
+    main()
 
 
 def main():
@@ -43,8 +51,12 @@ def main():
     x = x_generator()
     y = y_generator(x, text)
     raw_coordinates = som_xy(x, y)
-    scale = 10
     draw.draw(raw_coordinates, scale)
-    turtle.exitonclick()
+##    turtle.onkey(upscale(scale,raw_coordinates),'p')
+##    turtle.listen()
+##    turtle.exitonclick()
 
 main()
+turtle.onkey(upscale(),'p')
+turtle.listen()
+turtle.exitonclick()
