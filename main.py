@@ -37,6 +37,7 @@ def upscale():
     global scale
     scale += 5
     global raw_coordinates
+    turtle.reset()
     draw.draw(raw_coordinates, scale)
 
 
