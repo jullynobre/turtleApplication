@@ -33,6 +33,13 @@ def som_xy(x, y):
     return raw_coordinates
 
 
+def upscale():
+    global scale
+    scale += 15
+    global raw_coordinates
+    draw.draw(raw_coordinates, scale)
+
+
 def main():
     scn = turtle.Screen()
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
@@ -44,16 +51,9 @@ def main():
     global raw_coordinates
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-
-
-def upscale():
-    global scale
-    scale += 15
-    global raw_coordinates
-    draw.draw(raw_coordinates, scale)
+    turtle.onkey(upscale, 'p')
+    turtle.listen()
+    turtle.exitonclick()
 
 
 main()
-turtle.onkey(upscale(), 'p')
-turtle.listen()
-turtle.exitonclick()
