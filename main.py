@@ -54,7 +54,7 @@ def main():
     draw.draw(raw_coordinates, scale)
 ##    turtle.onkey(upscale(scale,raw_coordinates),'p')
 ##    turtle.listen()
-##    turtle.exitonclick()
+    turtle.exitonclick()
 
 main()
 turtle.onkey(upscale(),'p')
