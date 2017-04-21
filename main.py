@@ -4,10 +4,8 @@ import draw
 import ctypes
 
 scale = 10
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 5de5fea... n lembro o q eu fiz aqui alem da tela no tamanho certo e um concerto da escala
+
 
 def x_generator():
     num_x = turtle.window_width()/scale
@@ -30,26 +28,17 @@ def y_generator(x, func):
 def som_xy(x, y):
     raw_coordinates = []
     for i in range(len(x)):
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> parent of 5de5fea... n lembro o q eu fiz aqui alem da tela no tamanho certo e um concerto da escala
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
     return raw_coordinates
 
 
-<<<<<<< HEAD
 def upscale():
     global scale
     scale += 5
     main()
 
 
-=======
->>>>>>> parent of 5de5fea... n lembro o q eu fiz aqui alem da tela no tamanho certo e um concerto da escala
 def main():
     scn = turtle.Screen()
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
@@ -61,17 +50,13 @@ def main():
     raw_coordinates = som_xy(x, y)
     scale = 10
     draw.draw(raw_coordinates, scale)
-<<<<<<< HEAD
     # turtle.onkey(upscale(), 'p')
     # turtle.listen()
     turtle.exitonclick()
 
 main()
-turtle.onkey(upscale(), 'p')
-turtle.listen()
+##turtle.onkey(upscale(), 'p')
+##turtle.listen()
 turtle.exitonclick()
-=======
-    turtle.exitonclick()
 
 main()
->>>>>>> parent of 5de5fea... n lembro o q eu fiz aqui alem da tela no tamanho certo e um concerto da escala
