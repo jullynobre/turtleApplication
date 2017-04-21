@@ -43,10 +43,11 @@ def upscale():
 
 def downscale():
     global scale
-    scale = scale * 0.8
-    global raw_coordinates
-    turtle.reset()
-    draw.draw(raw_coordinates, scale)
+    if (scale * 0.8) >= 10:
+        scale = scale * 0.8
+        global raw_coordinates
+        turtle.reset()
+        draw.draw(raw_coordinates, scale)
 
 
 def main():
