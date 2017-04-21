@@ -35,7 +35,7 @@ def som_xy(x, y):
 
 def upscale():
     global scale
-    scale += 15
+    scale += 5
     global raw_coordinates
     draw.draw(raw_coordinates, scale)
 
@@ -51,9 +51,9 @@ def main():
     global raw_coordinates
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-    turtle.onkey(upscale, 'p')
-    turtle.listen()
-    turtle.exitonclick()
 
 
 main()
+turtle.onkey(upscale, 'p')
+turtle.listen()
+turtle.exitonclick()
