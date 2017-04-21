@@ -3,7 +3,6 @@ import helper
 import draw
 import ctypes
 
-global scale
 scale = 10
 
 
@@ -34,6 +33,7 @@ def som_xy(x, y):
 
 
 def upscale():
+    global scale
     scale += 5
     main()
 
@@ -48,8 +48,11 @@ def main():
     y = y_generator(x, text)
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
+    # turtle.onkey(upscale(), 'p')
+    # turtle.listen()
+    turtle.exitonclick()
 
 main()
-##turtle.onkey(upscale(), 'p')
-##turtle.listen()
+turtle.onkey(upscale(), 'p')
+turtle.listen()
 turtle.exitonclick()
