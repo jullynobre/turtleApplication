@@ -4,6 +4,7 @@ import draw
 import ctypes
 
 scale = 10
+raw_coordinates = []
 
 
 def x_generator():
@@ -25,7 +26,7 @@ def y_generator(x, func):
 
 
 def som_xy(x, y):
-    raw_coordinates = []
+    global raw_coordinates
     for i in range(len(x)):
         raw_coordinates.append(x[i])
         raw_coordinates.append(y[i])
@@ -40,15 +41,19 @@ def main():
     text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
     y = y_generator(x, text)
+    global raw_coordinates
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-    return raw_coordinates
+
 
 def upscale():
-    scale = 15
+    global scale
+    scale += 15
+    global raw_coordinates
     draw.draw(raw_coordinates, scale)
 
 
 main()
 turtle.onkey(upscale(), 'p')
 turtle.listen()
+turtle.exitonclick()
