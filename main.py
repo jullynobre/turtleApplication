@@ -34,20 +34,25 @@ def som_xy(x, y):
 
 
 def upscale():
+    turtle.reset()
     global scale
     scale = scale * 1.2
-    global raw_coordinates
-    turtle.reset()
+    x = x_generator()
+    y = y_generator(x, text)
+    raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-
+    print(len(raw_coordinates))
 
 def downscale():
     global scale
     if (scale * 0.8) >= 10:
-        scale = scale * 0.8
-        global raw_coordinates
         turtle.reset()
+        scale = scale * 0.8
+        x = x_generator()
+        y = y_generator(x, text)
+        raw_coordinates = som_xy(x, y)
         draw.draw(raw_coordinates, scale)
+        print(len(raw_coordinates))
 
 
 def main():
@@ -55,12 +60,14 @@ def main():
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
     turtle.setup(screensize[0], screensize[1])
     turtle.title("Grafic Builder 1.1")
+    global text
     text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
     y = y_generator(x, text)
     global raw_coordinates
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
+    print(len(raw_coordinates))
 
 
 main()
