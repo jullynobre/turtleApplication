@@ -9,9 +9,11 @@ import turtle
 
 
 def background(scale):
-    turtle.color('black')
-    turtle.hideturtle()
     turtle.tracer(0, 0)
+    turtle.hideturtle()
+    turtle.bgcolor('blue3')
+    turtle.color('white')
+    turtle.pensize(5)
     width = turtle.window_width()
     height = turtle.window_height()
     turtle.left(90)
@@ -67,12 +69,14 @@ def background(scale):
 
     #distancia x vezes escala igual a distancia em pixeis
 
+
+    turtle.pensize(1)
     a = int(width/scale*2)
     for i in range(a):
         turtle.forward(int(scale))
         turtle.right(90)
-        turtle.forward(5)
-        turtle.backward(5)
+        turtle.forward(8)
+        turtle.backward(8)
         turtle.left(90)
 
     turtle.home()
@@ -83,8 +87,8 @@ def background(scale):
     for i in range(a):
         turtle.forward(scale)
         turtle.left(90)
-        turtle.forward(5)
-        turtle.backward(5)
+        turtle.forward(8)
+        turtle.backward(8)
         turtle.right(90)
 
     turtle.home()
@@ -94,8 +98,8 @@ def background(scale):
     for i in range(b):
         turtle.forward(scale)
         turtle.right(90)
-        turtle.forward(5)
-        turtle.backward(5)
+        turtle.forward(8)
+        turtle.backward(8)
         turtle.left(90)
 
     turtle.home()
@@ -104,8 +108,8 @@ def background(scale):
     for i in range(b):
         turtle.forward(scale)
         turtle.left(90)
-        turtle.forward(5)
-        turtle.backward(5)
+        turtle.forward(8)
+        turtle.backward(8)
         turtle.right(90)
 
     turtle.home()
@@ -154,6 +158,7 @@ def grafic(coordinates,scale):
 ##    turtle.shape('triangle')
 ##    turtle.showturtle()
     turtle.penup()
+    turtle.pensize(3)
     turtle.color('red')
     turtle.setpos(coordinates[0],coordinates[1])
     x=int(len(coordinates)/2)
