@@ -8,12 +8,14 @@ raw_coordinates = []
 
 
 def x_generator():
-    num_x = turtle.window_width()/scale
-    a = (num_x/2)*(-1)
+    num_a = turtle.window_width() / 2
+    num_x = turtle.window_width() / scale
+    b = (num_x - 1) / (num_a - 1)
+    a = (turtle.window_width() / (2 * scale)) * (-1)
     x = []
-    for i in range(int(num_x)):
+    for i in range(int(num_a)):
         x.append(a)
-        a += 1
+        a += b
     return x
 
 
@@ -41,7 +43,6 @@ def upscale():
     y = y_generator(x, text)
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-    print(len(raw_coordinates))
 
 def downscale():
     global scale
@@ -52,7 +53,6 @@ def downscale():
         y = y_generator(x, text)
         raw_coordinates = som_xy(x, y)
         draw.draw(raw_coordinates, scale)
-        print(len(raw_coordinates))
 
 
 def main():
@@ -67,7 +67,6 @@ def main():
     global raw_coordinates
     raw_coordinates = som_xy(x, y)
     draw.draw(raw_coordinates, scale)
-    print(len(raw_coordinates))
 
 
 main()
