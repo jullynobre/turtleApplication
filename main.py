@@ -59,9 +59,9 @@ def main():
     scn = turtle.Screen()
     screensize = ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1)
     turtle.setup(screensize[0], screensize[1])
-    turtle.title("Grafic Builder 1.1")
+    turtle.title("Grafic Builder 1.0")
     global text
-    text = scn.textinput("Grafic Builder 1.1", "Informe a função")
+    text = scn.textinput("Grafic Builder 1.0", "Informe a função")
     x = x_generator()
     y = y_generator(x, text)
     global raw_coordinates
