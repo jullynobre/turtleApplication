@@ -11,9 +11,9 @@ import turtle
 def background(scale):
     turtle.tracer(0, 0)
     turtle.hideturtle()
-    turtle.bgcolor('blue3')
+    turtle.bgcolor('Navy')
     turtle.color('white')
-    turtle.pensize(5)
+    turtle.pensize(3)
     width = turtle.window_width()
     height = turtle.window_height()
     turtle.left(90)
@@ -75,8 +75,8 @@ def background(scale):
     for i in range(a):
         turtle.forward(int(scale))
         turtle.right(90)
-        turtle.forward(8)
-        turtle.backward(8)
+        turtle.forward(6)
+        turtle.backward(6)
         turtle.left(90)
 
     turtle.home()
@@ -87,8 +87,8 @@ def background(scale):
     for i in range(a):
         turtle.forward(scale)
         turtle.left(90)
-        turtle.forward(8)
-        turtle.backward(8)
+        turtle.forward(6)
+        turtle.backward(6)
         turtle.right(90)
 
     turtle.home()
@@ -98,8 +98,8 @@ def background(scale):
     for i in range(b):
         turtle.forward(scale)
         turtle.right(90)
-        turtle.forward(8)
-        turtle.backward(8)
+        turtle.forward(6)
+        turtle.backward(6)
         turtle.left(90)
 
     turtle.home()
@@ -108,8 +108,8 @@ def background(scale):
     for i in range(b):
         turtle.forward(scale)
         turtle.left(90)
-        turtle.forward(8)
-        turtle.backward(8)
+        turtle.forward(6)
+        turtle.backward(6)
         turtle.right(90)
 
     turtle.home()
@@ -119,13 +119,12 @@ def background(scale):
     turtle.right(90)
     turtle.forward(height/2-20)
     turtle.left(90)
-    label_size=len(str(scale))*6+62
-    turtle.forward(width/2-label_size-scale-30)
-
-    turtle.write(str(scale))
-    turtle.forward(len(str(scale))*6-55)
+    label_size = len(str(scale))*4.7 + scale / 2 + 48 + 60
+    turtle.forward(width/2-label_size-scale)
     turtle.write('Escala =')
     turtle.forward(55)
+    turtle.write(str(scale))
+    turtle.forward(len(str(scale))*6)
     turtle.write(':1')
 
     turtle.forward(17)
