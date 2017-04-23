@@ -149,8 +149,21 @@ def background(scale):
     turtle.forward(30)
 
     turtle.home()
+    turtle.penup()
+    turtle.right(90)
+    turtle.forward(turtle.window_height() / 2 - 40)
+    turtle.right(90)
+    turtle.forward(turtle.window_width() / 2 - 40)
+    turtle.right(180)
+    turtle.write('para aumetar a escala use tecla com seta para baixo')
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.write('para reduzir a escala use tecla com seta para cima')
+    turtle.home()
     turtle.pendown()
     turtle.update()
+
+    
 
 
 def grafic(coordinates,scale):
@@ -167,6 +180,7 @@ def grafic(coordinates,scale):
     for i in range(x):
         turtle.setpos(coordinates[cont],coordinates[cont+1])
         cont += 2
+    turtle.home()
     
 
 
