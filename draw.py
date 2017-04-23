@@ -9,13 +9,73 @@ import turtle
 
 
 def background(scale):
+    width = turtle.window_width()
+    height = turtle.window_height()
     turtle.tracer(0, 0)
+    turtle.color('blue')
+    turtle.pensize(1)
+    a = int(width/scale*2)
+    for i in range(a):
+        turtle.penup()
+        turtle.forward(int(scale))
+        turtle.pendown()
+        turtle.right(90)
+        turtle.forward(height/2)
+        turtle.backward(height)
+        turtle.forward(height/2)
+        turtle.left(90)
+    
+    turtle.penup()
+    turtle.home()
+    turtle.left(180)
+
+    
+
+    for i in range(a):
+        turtle.penup()
+        turtle.forward(int(scale))
+        turtle.pendown()
+        turtle.right(90)
+        turtle.forward(height/2)
+        turtle.backward(height)
+        turtle.forward(height/2)
+        turtle.left(90)
+
+    turtle.penup()
+    turtle.home()
+
+    b=int((height/scale)/2)
+    turtle.left(90)
+    for i in range(b):
+        turtle.penup()
+        turtle.forward(int(scale))
+        turtle.pendown()
+        turtle.right(90)
+        turtle.forward(width/2)
+        turtle.backward(width)
+        turtle.forward(width/2)
+        turtle.left(90)
+
+    turtle.penup()
+    turtle.home()
+    turtle.right(90)
+
+    for i in range(b):
+        turtle.penup()
+        turtle.forward(int(scale))
+        turtle.pendown()
+        turtle.right(90)
+        turtle.forward(width/2)
+        turtle.backward(width)
+        turtle.forward(width/2)
+        turtle.left(90)
+
+    turtle.penup()
+    turtle.home()
     turtle.hideturtle()
     turtle.bgcolor('Navy')
     turtle.color('white')
     turtle.pensize(3)
-    width = turtle.window_width()
-    height = turtle.window_height()
     turtle.left(90)
     turtle.forward(height/2)
 
@@ -31,7 +91,7 @@ def background(scale):
     turtle.penup()
     turtle.right(90)
     turtle.forward(15)
-    turtle.write('x')
+    turtle.write('X')
     turtle.backward(15)
     turtle.left(90)
     turtle.forward(60)
@@ -56,7 +116,7 @@ def background(scale):
     turtle.penup()
     turtle.left(90)
     turtle.forward(15)
-    turtle.write('y')
+    turtle.write('Y')
     turtle.backward(15)
     turtle.right(90)
     turtle.forward(60)
@@ -65,56 +125,11 @@ def background(scale):
     turtle.backward(width)
     turtle.home()
 
-    #escala
-
-    #distancia x vezes escala igual a distancia em pixeis
-
-
-    turtle.pensize(1)
-    a = int(width/scale*2)
-    for i in range(a):
-        turtle.forward(int(scale))
-        turtle.right(90)
-        turtle.forward(6)
-        turtle.backward(6)
-        turtle.left(90)
-
-    turtle.home()
-    turtle.left(180)
-
     
 
-    for i in range(a):
-        turtle.forward(scale)
-        turtle.left(90)
-        turtle.forward(6)
-        turtle.backward(6)
-        turtle.right(90)
-
-    turtle.home()
-
-    b=int((height/scale)/2)
-    turtle.left(90)
-    for i in range(b):
-        turtle.forward(scale)
-        turtle.right(90)
-        turtle.forward(6)
-        turtle.backward(6)
-        turtle.left(90)
-
-    turtle.home()
-    turtle.right(90)
-
-    for i in range(b):
-        turtle.forward(scale)
-        turtle.left(90)
-        turtle.forward(6)
-        turtle.backward(6)
-        turtle.right(90)
-
-    turtle.home()
-
     #escala
+    turtle.color('white')
+    turtle.pensize(2)
     turtle.penup()
     turtle.right(90)
     turtle.forward(height/2-20)
