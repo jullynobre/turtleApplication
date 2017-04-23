@@ -70,7 +70,7 @@ def background(scale):
         turtle.forward(width/2)
         turtle.left(90)
 
-    turtle.penup()
+    #turtle.penup()
     turtle.home()
     turtle.hideturtle()
     turtle.bgcolor('Navy')
@@ -127,7 +127,7 @@ def background(scale):
 
     
 
-    #escala
+    #legenda
     turtle.color('white')
     turtle.pensize(2)
     turtle.penup()
