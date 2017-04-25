@@ -1,8 +1,8 @@
 def get_y(func, x):
     func = clear_function(func)
-    func = replace_x_with_operator(func, x)
     if func.find("(") < 0:
         func = replace_exponents(func)
+        func = replace_x_with_operator(func, x)
         while has_operator(func):
             i_op = get_index_of_next_operator(func)
             n1 = get_left_number(func, i_op)
